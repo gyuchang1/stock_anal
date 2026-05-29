@@ -141,6 +141,10 @@ if st.session_state['scan_completed']:
     if not found_stocks:
         st.warning("오늘은 모든 조건을 만족하는 종목이 없습니다. 푹 쉬세요! ☕")
     else:
+        # 💡 [여기 추가됨!] 포착된 종목 개수와 이름 요약해서 화면에 띄우기
+        st.success(f"🎉 조건에 맞는 종목을 총 **{len(found_stocks)}개** 찾았습니다!")
+        st.info(f"**포착된 종목:** {', '.join(found_stocks)}")
+        
         # 드롭다운 메뉴로 종목 선택 (스마트폰 터치 친화적)
         selected_stock = st.selectbox("📊 차트를 확인할 종목을 선택하세요:", found_stocks)
         
